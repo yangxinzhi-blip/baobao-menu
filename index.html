@@ -1,0 +1,69 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171022">
+  <meta name="description" content="宝宝想吃什么——黑紫粉风格的手机点餐小网页">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>宝宝想吃什么</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero-card">
+      <div class="sparkles" aria-hidden="true">✦　♡　✦</div>
+      <p class="eyebrow">今天也要好好吃饭呀</p>
+      <h1>宝宝想吃什么<span class="heart">♥</span></h1>
+      <p class="hero-copy">点一点，告诉我今天想吃、想喝什么～</p>
+      <div class="progress-pill" id="progressText">已选择 0 项</div>
+    </header>
+
+    <nav class="tabs" aria-label="点餐分类">
+      <button class="tab is-active" type="button" data-category="eat"><span>🍜</span>吃</button>
+      <button class="tab" type="button" data-category="drink"><span>🧋</span>喝</button>
+      <button class="tab" type="button" data-category="fruit"><span>🍓</span>水果</button>
+      <button class="tab" type="button" data-category="note"><span>💌</span>备注</button>
+    </nav>
+
+    <section class="section-heading">
+      <div>
+        <p class="section-kicker" id="sectionKicker">宝宝想吃什么</p>
+        <h2 id="sectionTitle">选一点喜欢的</h2>
+      </div>
+      <span class="count-badge" id="categoryCount">0</span>
+    </section>
+
+    <section id="menuGrid" class="menu-grid" aria-live="polite"></section>
+    <section id="notePanel" class="note-panel" hidden>
+      <label for="noteInput">想对我说</label>
+      <textarea id="noteInput" maxlength="200" placeholder="比如：少辣、想吃热乎的、今天想被投喂……"></textarea>
+      <div class="note-meta"><span>写下你的专属备注</span><span id="noteCount">0/200</span></div>
+    </section>
+
+    <div class="bottom-space" aria-hidden="true"></div>
+  </main>
+
+  <aside class="summary-bar">
+    <div><strong id="summaryCount">还没有选择</strong><span>选好后交给我来安排</span></div>
+    <button id="summaryButton" class="primary-button" type="button">看看宝宝选了什么 <span>→</span></button>
+  </aside>
+
+  <dialog id="summaryDialog" class="summary-dialog">
+    <div class="dialog-card">
+      <button id="closeSummaryButton" class="icon-button" type="button" aria-label="关闭汇总">×</button>
+      <div class="dialog-top">♡　今日点餐单　♡</div>
+      <h2>宝宝的选择</h2>
+      <p class="dialog-subtitle">把这份可爱清单发给我吧</p>
+      <div id="summaryContent" class="summary-content"></div>
+      <div id="actionStatus" class="action-status" aria-live="polite"></div>
+      <div class="dialog-actions">
+        <button id="copyButton" class="secondary-button" type="button">复制清单</button>
+        <button id="shareButton" class="primary-button" type="button">分享给我</button>
+      </div>
+      <button id="clearButton" class="clear-button" type="button">清空重新选</button>
+    </div>
+  </dialog>
+  <script src="app.js" defer></script>
+</body>
+</html>
